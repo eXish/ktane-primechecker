@@ -11,6 +11,9 @@ public class PrimeCheckerScript : MonoBehaviour
     int moduleID;
     private bool moduleSolved;
 
+    //animating var, not original
+    private bool animating = false;
+
     private void Start()
 	{
         moduleID = moduleCounter++;
@@ -64,6 +67,7 @@ public class PrimeCheckerScript : MonoBehaviour
             //Debug.Log("end");
             moduleSolved = true;
             Debug.LogFormat("[Prime Checker #{0}] Module Disarmed.", moduleID);
+            this.maintext.text = string.Empty;
             base.GetComponent<KMBombModule>().HandlePass();
 		}
 		else
@@ -102,9 +106,10 @@ public class PrimeCheckerScript : MonoBehaviour
 
 	private void pressbuttonprime()
 	{
-        if(moduleSolved != true)
+        if(moduleSolved != true && animating != true)
         {
-            buttons[0].AddInteractionPunch(0.25f);
+            StartCoroutine(animateButton(this.buttons[0]));
+            buttons[0].AddInteractionPunch(0.5f);
             this.audioRef = base.GetComponent<KMAudio>().PlayGameSoundAtTransformWithRef(KMSoundOverride.SoundEffect.ButtonPress, base.transform);
             if (this.iscurrentprime)
             {
@@ -161,9 +166,10 @@ public class PrimeCheckerScript : MonoBehaviour
 
 	private void pressbuttonnotprime()
 	{
-        if(moduleSolved != true)
+        if(moduleSolved != true && animating != true)
         {
-            buttons[1].AddInteractionPunch(0.25f);
+            StartCoroutine(animateButton(this.buttons[1]));
+            buttons[1].AddInteractionPunch(0.5f);
             this.audioRef = base.GetComponent<KMAudio>().PlayGameSoundAtTransformWithRef(KMSoundOverride.SoundEffect.ButtonPress, base.transform);
             if (!this.iscurrentprime)
             {
@@ -190,7 +196,29 @@ public class PrimeCheckerScript : MonoBehaviour
 		}
 	}
 
-	public KMSelectable[] buttons;
+    //animating method, not originally here
+    private IEnumerator animateButton(KMSelectable button)
+    {
+        animating = true;
+        int movement = 0;
+        while (movement != 10)
+        {
+            yield return new WaitForSeconds(0.0001f);
+            button.transform.localPosition = button.transform.localPosition + Vector3.up * -0.001f;
+            movement++;
+        }
+        movement = 0;
+        while (movement != 10)
+        {
+            yield return new WaitForSeconds(0.0001f);
+            button.transform.localPosition = button.transform.localPosition + Vector3.up * 0.001f;
+            movement++;
+        }
+        StopCoroutine("animateButton");
+        animating = false;
+    }
+
+    public KMSelectable[] buttons;
 
 	public GameObject[] LEDCORRECT;
 
