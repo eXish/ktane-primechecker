@@ -11,9 +11,6 @@ public class PrimeCheckerScript : MonoBehaviour
     int moduleID;
     private bool moduleSolved;
 
-    //animating var, not original
-    private bool animating = false;
-
     private void Start()
 	{
         moduleID = moduleCounter++;
@@ -106,7 +103,7 @@ public class PrimeCheckerScript : MonoBehaviour
 
 	private void pressbuttonprime()
 	{
-        if(moduleSolved != true && animating != true)
+        if(moduleSolved != true)
         {
             StartCoroutine(animateButton(this.buttons[0]));
             buttons[0].AddInteractionPunch(0.5f);
@@ -166,7 +163,7 @@ public class PrimeCheckerScript : MonoBehaviour
 
 	private void pressbuttonnotprime()
 	{
-        if(moduleSolved != true && animating != true)
+        if(moduleSolved != true)
         {
             StartCoroutine(animateButton(this.buttons[1]));
             buttons[1].AddInteractionPunch(0.5f);
@@ -199,7 +196,6 @@ public class PrimeCheckerScript : MonoBehaviour
     //animating method, not originally here
     private IEnumerator animateButton(KMSelectable button)
     {
-        animating = true;
         int movement = 0;
         while (movement != 10)
         {
@@ -215,7 +211,6 @@ public class PrimeCheckerScript : MonoBehaviour
             movement++;
         }
         StopCoroutine("animateButton");
-        animating = false;
     }
 
     public KMSelectable[] buttons;
@@ -273,10 +268,6 @@ public class PrimeCheckerScript : MonoBehaviour
             else if (this.iscurrentprime == false)
             {
                 yield return ProcessTwitchCommand("notprime");
-            }
-            while(animating == true)
-            {
-                yield return new WaitForSeconds(0.1f);
             }
             yield return new WaitForSeconds(0.5f);
         }
