@@ -26,11 +26,11 @@ MonoBehaviour:
     PDF: https://ktane.timwi.de/PDF/Prime%20Checker.pdf
 
 
-    Prime Checker (PrimeChecker) v1.0.2
+    Prime Checker (PrimeChecker) v1.0.3
 
     Module by Devster_LP, maintained by eXish
 
     Twitch Plays supported'
-  version: 1.0.2
+  version: 1.0.3
   outputFolder: build
   previewImage: {fileID: 2800000, guid: eba77e98079f22a4aa6ca86c888d67bb, type: 3}

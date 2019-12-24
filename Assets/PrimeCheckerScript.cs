@@ -227,9 +227,9 @@ public class PrimeCheckerScript : MonoBehaviour
 
 	public TextMesh maintext;
 
-	private string primenumbers = "\r\n2\r\n3\r\n5\r\n7\r\n11\r\n13\r\n17\r\n19\r\n23\r\n29\r\n31\r\n37\r\n41\r\n43\r\n47\r\n53\r\n59\r\n61\r\n67\r\n71\r\n73\r\n79\r\n83\r\n89\r\n97\r\n101\r\n103\r\n107\r\n109\r\n113\r\n127\r\n131\r\n137\r\n139\r\n149\r\n151\r\n157\r\n163\r\n167\r\n173\r\n179\r\n181\r\n191\r\n193\r\n197\r\n199\r\n211\r\n223\r\n227\r\n229\r\n233\r\n239\r\n241\r\n251\r\n257\r\n263\r\n269\r\n271\r\n277\r\n281\r\n283\r\n293\r\n307\r\n311\r\n313\r\n317\r\n331\r\n337\r\n347\r\n349\r\n353\r\n359\r\n367\r\n373\r\n379\r\n383\r\n389\r\n397\r\n401\r\n409\r\n419\r\n421\r\n431\r\n433\r\n439\r\n443\r\n449\r\n457\r\n461\r\n463\r\n467\r\n479\r\n487\r\n491\r\n499\r\n503\r\n509\r\n521\r\n523\r\n541\r\n547\r\n557\r\n563\r\n569\r\n571\r\n577\r\n587\r\n593\r\n599\r\n601\r\n607\r\n613\r\n617\r\n619\r\n631\r\n641\r\n643\r\n647\r\n653\r\n659\r\n661\r\n673\r\n677\r\n683\r\n691\r\n701\r\n709\r\n719\r\n727\r\n733\r\n739\r\n743\r\n751\r\n757\r\n761\r\n769\r\n773\r\n787\r\n797\r\n809\r\n811\r\n821\r\n823\r\n827\r\n829\r\n839\r\n853\r\n857\r\n859\r\n863\r\n877\r\n881\r\n883\r\n887\r\n907\r\n911\r\n919\r\n929\r\n937\r\n941\r\n947\r\n953\r\n967\r\n971\r\n977\r\n983\r\n991\r\n997\r\n    ";
+	private string primenumbers = "\n2\n3\n5\n7\n11\n13\n17\n19\n23\n29\n31\n37\n41\n43\n47\n53\n59\n61\n67\n71\n73\n79\n83\n89\n97\n101\n103\n107\n109\n113\n127\n131\n137\n139\n149\n151\n157\n163\n167\n173\n179\n181\n191\n193\n197\n199\n211\n223\n227\n229\n233\n239\n241\n251\n257\n263\n269\n271\n277\n281\n283\n293\n307\n311\n313\n317\n331\n337\n347\n349\n353\n359\n367\n373\n379\n383\n389\n397\n401\n409\n419\n421\n431\n433\n439\n443\n449\n457\n461\n463\n467\n479\n487\n491\n499\n503\n509\n521\n523\n541\n547\n557\n563\n569\n571\n577\n587\n593\n599\n601\n607\n613\n617\n619\n631\n641\n643\n647\n653\n659\n661\n673\n677\n683\n691\n701\n709\n719\n727\n733\n739\n743\n751\n757\n761\n769\n773\n787\n797\n809\n811\n821\n823\n827\n829\n839\n853\n857\n859\n863\n877\n881\n883\n887\n907\n911\n919\n929\n937\n941\n947\n953\n967\n971\n977\n983\n991\n997";
 
-	private string nonprimenumbers = "\r\n1\r\n9\r\n21\r\n27\r\n33\r\n39\r\n49\r\n51\r\n57\r\n63\r\n69\r\n77\r\n81\r\n87\r\n91\r\n93\r\n99\r\n111\r\n117\r\n119\r\n121\r\n123\r\n129\r\n133\r\n141\r\n143\r\n147\r\n153\r\n159\r\n161\r\n169\r\n171\r\n177\r\n183\r\n187\r\n189\r\n201\r\n203\r\n207\r\n209\r\n213\r\n217\r\n219\r\n221\r\n231\r\n237\r\n243\r\n247\r\n249\r\n253\r\n259\r\n261\r\n267\r\n273\r\n279\r\n287\r\n289\r\n291\r\n297\r\n299\r\n301\r\n303\r\n309\r\n319\r\n321\r\n323\r\n327\r\n329\r\n333\r\n339\r\n341\r\n343\r\n351\r\n357\r\n361\r\n363\r\n369\r\n371\r\n377\r\n381\r\n387\r\n391\r\n393\r\n399\r\n403\r\n407\r\n411\r\n413\r\n417\r\n423\r\n427\r\n429\r\n437\r\n441\r\n447\r\n451\r\n453\r\n459\r\n469\r\n471\r\n473\r\n477\r\n481\r\n483\r\n489\r\n493\r\n497\r\n501\r\n507\r\n511\r\n513\r\n517\r\n519\r\n527\r\n529\r\n531\r\n533\r\n537\r\n539\r\n543\r\n549\r\n551\r\n553\r\n559\r\n561\r\n567\r\n573\r\n579\r\n581\r\n583\r\n589\r\n591\r\n597\r\n603\r\n609\r\n611\r\n621\r\n623\r\n627\r\n629\r\n633\r\n637\r\n639\r\n649\r\n651\r\n657\r\n663\r\n667\r\n669\r\n671\r\n679\r\n681\r\n687\r\n689\r\n693\r\n697\r\n699\r\n703\r\n707\r\n711\r\n713\r\n717\r\n721\r\n723\r\n729\r\n731\r\n737\r\n741\r\n747\r\n749\r\n753\r\n759\r\n763\r\n767\r\n771\r\n777\r\n779\r\n781\r\n783\r\n789\r\n791\r\n793\r\n799\r\n801\r\n803\r\n807\r\n813\r\n817\r\n819\r\n831\r\n833\r\n837\r\n841\r\n843\r\n847\r\n849\r\n851\r\n861\r\n867\r\n869\r\n871\r\n873\r\n879\r\n889\r\n891\r\n893\r\n897\r\n899\r\n901\r\n903\r\n909\r\n913\r\n917\r\n921\r\n923\r\n927\r\n931\r\n933\r\n939\r\n943\r\n949\r\n951\r\n957\r\n959\r\n961\r\n963\r\n969\r\n973\r\n979\r\n981\r\n987\r\n989\r\n993\r\n999\r\n";
+	private string nonprimenumbers = "\n1\n9\n21\n27\n33\n39\n49\n51\n57\n63\n69\n77\n81\n87\n91\n93\n99\n111\n117\n119\n121\n123\n129\n133\n141\n143\n147\n153\n159\n161\n169\n171\n177\n183\n187\n189\n201\n203\n207\n209\n213\n217\n219\n221\n231\n237\n243\n247\n249\n253\n259\n261\n267\n273\n279\n287\n289\n291\n297\n299\n301\n303\n309\n319\n321\n323\n327\n329\n333\n339\n341\n343\n351\n357\n361\n363\n369\n371\n377\n381\n387\n391\n393\n399\n403\n407\n411\n413\n417\n423\n427\n429\n437\n441\n447\n451\n453\n459\n469\n471\n473\n477\n481\n483\n489\n493\n497\n501\n507\n511\n513\n517\n519\n527\n529\n531\n533\n537\n539\n543\n549\n551\n553\n559\n561\n567\n573\n579\n581\n583\n589\n591\n597\n603\n609\n611\n621\n623\n627\n629\n633\n637\n639\n649\n651\n657\n663\n667\n669\n671\n679\n681\n687\n689\n693\n697\n699\n703\n707\n711\n713\n717\n721\n723\n729\n731\n737\n741\n747\n749\n753\n759\n763\n767\n771\n777\n779\n781\n783\n789\n791\n793\n799\n801\n803\n807\n813\n817\n819\n831\n833\n837\n841\n843\n847\n849\n851\n861\n867\n869\n871\n873\n879\n889\n891\n893\n897\n899\n901\n903\n909\n913\n917\n921\n923\n927\n931\n933\n939\n943\n949\n951\n957\n959\n961\n963\n969\n973\n979\n981\n987\n989\n993\n999\n";
 
     //twitch plays
     #pragma warning disable 414
@@ -243,13 +243,7 @@ public class PrimeCheckerScript : MonoBehaviour
             buttons[0].OnInteract();
             yield break;
         }
-        if (Regex.IsMatch(command, @"^\s*notprime\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
-        {
-            yield return null;
-            buttons[1].OnInteract();
-            yield break;
-        }
-        if (Regex.IsMatch(command, @"^\s*not prime\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
+        if (Regex.IsMatch(command, @"^\s*not ?prime\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
         {
             yield return null;
             buttons[1].OnInteract();
@@ -259,7 +253,7 @@ public class PrimeCheckerScript : MonoBehaviour
 
     IEnumerator TwitchHandleForcedSolve()
     {
-        for(int i = 0; i < 3; i++)
+        for(int i = currentindex; i < 4; i++)
         {
             if (this.iscurrentprime == true)
             {
@@ -269,7 +263,7 @@ public class PrimeCheckerScript : MonoBehaviour
             {
                 yield return ProcessTwitchCommand("notprime");
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
