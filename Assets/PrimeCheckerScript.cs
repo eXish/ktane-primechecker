@@ -18,26 +18,10 @@ public class PrimeCheckerScript : MonoBehaviour
 		this.init();
 	}
 
-	private void Update()
-	{
-	}
-
 	private void init()
 	{
 		KMBombModule component = base.GetComponent<KMBombModule>();
 		component.OnActivate = (KMBombModule.KMModuleActivateEvent)Delegate.Combine(component.OnActivate, new KMBombModule.KMModuleActivateEvent(this.OnActivate));
-		KMSelectable component2 = base.GetComponent<KMSelectable>();
-		component2.OnCancel = (KMSelectable.OnCancelHandler)Delegate.Combine(component2.OnCancel, new KMSelectable.OnCancelHandler(this.OnCancel));
-		KMSelectable component3 = base.GetComponent<KMSelectable>();
-		component3.OnLeft = (Action)Delegate.Combine(component3.OnLeft, new Action(this.OnLeft));
-		KMSelectable component4 = base.GetComponent<KMSelectable>();
-		component4.OnRight = (Action)Delegate.Combine(component4.OnRight, new Action(this.OnRight));
-		KMSelectable component5 = base.GetComponent<KMSelectable>();
-		component5.OnSelect = (Action)Delegate.Combine(component5.OnSelect, new Action(this.OnSelect));
-		KMSelectable component6 = base.GetComponent<KMSelectable>();
-		component6.OnDeselect = (Action)Delegate.Combine(component6.OnDeselect, new Action(this.OnDeselect));
-		KMSelectable component7 = base.GetComponent<KMSelectable>();
-		component7.OnHighlight = (Action)Delegate.Combine(component7.OnHighlight, new Action(this.OnHighlight));
 		KMSelectable kmselectable = this.buttons[0];
 		kmselectable.OnInteract = (KMSelectable.OnInteractHandler)Delegate.Combine(kmselectable.OnInteract, new KMSelectable.OnInteractHandler(delegate()
 		{
@@ -103,7 +87,7 @@ public class PrimeCheckerScript : MonoBehaviour
 
 	private void pressbuttonprime()
 	{
-        if(moduleSolved != true)
+        if(!moduleSolved)
         {
             StartCoroutine(animateButton(this.buttons[0]));
             buttons[0].AddInteractionPunch(0.5f);
@@ -130,40 +114,9 @@ public class PrimeCheckerScript : MonoBehaviour
 		this.newprime();
 	}
 
-	private bool OnCancel()
-	{
-		//Debug.Log("ExampleModule2 cancel.");
-		return true;
-	}
-
-	private void OnDeselect()
-	{
-		//Debug.Log("ExampleModule2 OnDeselect.");
-	}
-
-	private void OnLeft()
-	{
-		//Debug.Log("ExampleModule2 OnLeft.");
-	}
-
-	private void OnRight()
-	{
-		//Debug.Log("ExampleModule2 OnRight.");
-	}
-
-	private void OnSelect()
-	{
-		//Debug.Log("ExampleModule2 OnSelect.");
-	}
-
-	private void OnHighlight()
-	{
-		//Debug.Log("ExampleModule2 OnHighlight.");
-	}
-
 	private void pressbuttonnotprime()
 	{
-        if(moduleSolved != true)
+        if(!moduleSolved)
         {
             StartCoroutine(animateButton(this.buttons[1]));
             buttons[1].AddInteractionPunch(0.5f);
@@ -185,14 +138,6 @@ public class PrimeCheckerScript : MonoBehaviour
         }
 	}
 
-	private void OnRelease()
-	{
-		//Debug.Log("OnInteractEnded Released");
-		if (this.audioRef == null || this.audioRef.StopSound != null)
-		{
-		}
-	}
-
     //animating method, not originally here
     private IEnumerator animateButton(KMSelectable button)
     {
@@ -210,7 +155,6 @@ public class PrimeCheckerScript : MonoBehaviour
             button.transform.localPosition = button.transform.localPosition + Vector3.up * 0.001f;
             movement++;
         }
-        StopCoroutine("animateButton");
     }
 
     public KMSelectable[] buttons;
@@ -237,17 +181,14 @@ public class PrimeCheckerScript : MonoBehaviour
     #pragma warning restore 414
     IEnumerator ProcessTwitchCommand(string command)
     {
+    	yield return null;
         if (Regex.IsMatch(command, @"^\s*prime\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
         {
-            yield return null;
             buttons[0].OnInteract();
-            yield break;
         }
         if (Regex.IsMatch(command, @"^\s*not ?prime\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
         {
-            yield return null;
             buttons[1].OnInteract();
-            yield break;
         }
     }
 
@@ -255,14 +196,7 @@ public class PrimeCheckerScript : MonoBehaviour
     {
         for(int i = currentindex; i < 4; i++)
         {
-            if (this.iscurrentprime == true)
-            {
-                yield return ProcessTwitchCommand("prime");
-            }
-            else if (this.iscurrentprime == false)
-            {
-                yield return ProcessTwitchCommand("notprime");
-            }
+	    yield return ProcessTwitchCommand(this.iscurrentprime ? "prime" : "notprime");
             yield return new WaitForSeconds(0.1f);
         }
     }
