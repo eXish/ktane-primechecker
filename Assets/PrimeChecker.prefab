@@ -904,7 +904,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f842d962ce256e442a37db95317f7634, type: 2}
+  - {fileID: 2100000, guid: 3a0de6f86e467e840a1e3098f29f82b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1006,7 +1006,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f842d962ce256e442a37db95317f7634, type: 2}
+  - {fileID: 2100000, guid: 3a0de6f86e467e840a1e3098f29f82b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1176,7 +1176,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f842d962ce256e442a37db95317f7634, type: 2}
+  - {fileID: 2100000, guid: 3a0de6f86e467e840a1e3098f29f82b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1328,7 +1328,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1233654614148200}
-  m_Text: 634
+  m_Text: 643
   m_OffsetZ: 0
   m_CharacterSize: 125
   m_LineSpacing: 1
@@ -1421,6 +1421,7 @@ MonoBehaviour:
   - {fileID: 1828347272113188}
   currentindex: 0
   iscurrentprime: 0
+  activated: 0
   maintext: {fileID: 102060044381337032}
 --- !u!114 &114051262804708908
 MonoBehaviour:
